@@ -216,16 +216,16 @@ class QuizApp {
   nextQuestion() {
     $("main").unbind('click').on("click", ".next-question", (e) => {
       e.preventDefault();
-      document.querySelector('.progress-meter-alt').scrollIntoView({ behavior: 'smooth' });
+      window.scroll({ top: 0, left: 0, behavior: 'smooth' });
 
       setTimeout(() => {
         $(".next-question").addClass("see-answer");
         $(".next-question").removeClass("next-question");
-        this.proceed();        
+        this.proceed();
       }, 200)
       setTimeout(() => {
         $(".reasoning") ? $(".reasoning").remove() : null;
-      }, 500)
+      }, 1000)
         $('.progress-meter--current').html(currentQuestion + 1);
     });
   }
