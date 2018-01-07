@@ -1,0 +1,116 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "smoothscroll-polyfill",
+        "scope": null,
+        "escapedName": "smoothscroll-polyfill",
+        "name": "smoothscroll-polyfill",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/benjaminmodayil/Documents/sites/viget/viget.com"
+    ]
+  ],
+  "_from": "smoothscroll-polyfill@latest",
+  "_id": "smoothscroll-polyfill@0.4.0",
+  "_inCache": true,
+  "_location": "/smoothscroll-polyfill",
+  "_nodeVersion": "7.10.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/smoothscroll-polyfill-0.4.0.tgz_1506099706731_0.2490625570062548"
+  },
+  "_npmUser": {
+    "name": "jeremenichelli",
+    "email": "jmenichelli@gmail.com"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "smoothscroll-polyfill",
+    "scope": null,
+    "escapedName": "smoothscroll-polyfill",
+    "name": "smoothscroll-polyfill",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.0.tgz",
+  "_shasum": "dcda9fe6e9f5d660b886b79be043d40c68fe57d2",
+  "_shrinkwrap": null,
+  "_spec": "smoothscroll-polyfill",
+  "_where": "/Users/benjaminmodayil/Documents/sites/viget/viget.com",
+  "author": {
+    "name": "Dustan Kasten",
+    "email": "dustan.kasten@gmail.com",
+    "url": "https://iamdustan.com"
+  },
+  "bugs": {
+    "url": "https://github.com/iamdustan/smoothscroll/issues"
+  },
+  "contributors": [
+    {
+      "name": "Jeremias Menichelli",
+      "email": "jmenichelli@gmail.com",
+      "url": "https://jeremenichelli.github.io"
+    }
+  ],
+  "dependencies": {},
+  "description": "Polyfill for smooth scroll behavior",
+  "devDependencies": {
+    "eslint": "^4.7.1",
+    "rollup": "^0.50.0",
+    "uglify-js": "^3.1.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "dcda9fe6e9f5d660b886b79be043d40c68fe57d2",
+    "tarball": "https://registry.npmjs.org/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.0.tgz"
+  },
+  "gitHead": "77b7cd2187257370ab1eedd0d5a297c5a2654135",
+  "homepage": "https://iamdustan.github.io/smoothscroll",
+  "keywords": [
+    "smooth",
+    "scroll",
+    "CSSOM",
+    "polyfill"
+  ],
+  "license": "MIT",
+  "main": "dist/smoothscroll.js",
+  "maintainers": [
+    {
+      "name": "iamdustan",
+      "email": "dustan.kasten@gmail.com"
+    },
+    {
+      "name": "jeremenichelli",
+      "email": "jmenichelli@gmail.com"
+    },
+    {
+      "name": "jiyinyiyong",
+      "email": "jiyinyiyong@gmail.com"
+    }
+  ],
+  "name": "smoothscroll-polyfill",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamdustan/smoothscroll.git"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "minify": "uglifyjs dist/smoothscroll.js -c -m -o dist/smoothscroll.min.js --verbose",
+    "prebuild": "npm test",
+    "preminify": "npm run build",
+    "test": "eslint src/**/*.js"
+  },
+  "title": "smoothscroll",
+  "version": "0.4.0"
+}
