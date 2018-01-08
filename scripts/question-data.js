@@ -51,7 +51,7 @@ let questions = [
     options: ["True", "False"],
     correct: "True",
     reason:
-      "Our bodies absorb coffee much slower when it has added fat milk content, which decreases the stimulants.."
+      "Our bodies absorb coffee much slower when it has added fat milk content, which decreases the stimulants."
   },
   {
     question: "Who invented instant coffee?",

@@ -61,6 +61,16 @@ legend {
   width: 100%;
 }
 
+.button-share svg {
+  position: relative;
+  top: 2px;
+  left: 5px;
+}
+
+.button-share:hover g, .button-share:hover path{
+  fill: #009df6;
+}
+
 .progress-meter {
   background-color: white;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -174,6 +184,7 @@ aside {
 }
 
 main {
+  min-height: 70vh;
   padding: 0 3rem;
 }
 
@@ -213,10 +224,11 @@ aside {
 
 .button-start {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .question-item {
+  flex: 1 1 100%;
   font-size: 24px;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -395,6 +407,10 @@ form button {
     margin: initial initial;
     text-align: initial;
     width: initial;
+  }
+
+  .button-share {
+    margin-left: 2.5rem;
   }
 
   .results-container {
