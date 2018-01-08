@@ -255,8 +255,7 @@ class QuizApp {
         $(".reasoning") ? $(".reasoning").remove() : null;
         $(".container-quiz__inner").append(templating);
         setTimeout(() => {
-          // document.querySelector('.reasoning').scrollIntoView({ behavior: 'smooth' });
-          window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
+          window.scrollBy({ top: 500, left: 0, behavior: 'smooth' });
         }, 300)
 
         if (
