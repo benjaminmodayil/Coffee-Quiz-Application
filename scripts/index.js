@@ -295,6 +295,8 @@ class QuizApp {
         } else {
           this.warn();
         }
+      } else {
+        this.warn();
       }
     });
   }
