@@ -30,7 +30,7 @@ let questions = [
     ],
     correct: "Cat Feces",
     reason:
-      "And it comes from the feces of a Sumatran wild cat. The animal — called a Luwak — is unable to digest coffee beans. In the process of digesting the beans, they are fermented in the stomach. When the beans are excreted, they produce a smooth, chocolaty coffee."
+      "The animal — called a Luwak — is unable to digest coffee beans. In the process of digesting the beans, they are fermented in the stomach. When the beans are excreted, they produce a smooth, chocolaty coffee."
   },
   {
     question: "How much cups of coffee does it take for it to be lethal?",

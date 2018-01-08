@@ -1,20 +1,19 @@
-let currentQuestion = 0;
-let amtQuestions = questions.length;
-
-let progress = {
-  score: {
-    yes: 0,
-    no: 0
-  },
-  correctQuestions: [],
-  wrongQuestions: []
-};
-
 const el = document.querySelector("[data-quiz]");
 
 class QuizApp {
   constructor(el) {
     // this.el = el;
+    this.progress = {
+      score: {
+        yes: 0,
+        no: 0
+      },
+      correctQuestions: [],
+      wrongQuestions: []
+    }
+    this.currentQuestion = 0;
+    //questions.length refers to the amount of questions in the other js file
+    this.amtQuestions = questions.length;
     this.onStart();
   }
 
@@ -34,13 +33,13 @@ class QuizApp {
   answerStatus() {
     let $inputValue;
     $inputValue = $("input[type='radio']:checked").val();
-    if ($inputValue === questions[currentQuestion - 1].correct) {
-      progress.correctQuestions.push(questions[currentQuestion - 1]);
-      progress.score.yes += 1;
+    if ($inputValue === questions[this.currentQuestion - 1].correct) {
+      this.progress.correctQuestions.push(questions[this.currentQuestion - 1]);
+      this.progress.score.yes += 1;
       return true;
     } else {
-      progress.wrongQuestions.push(questions[currentQuestion - 1]);
-      progress.score.no += 1;
+      this.progress.wrongQuestions.push(questions[this.currentQuestion - 1]);
+      this.progress.score.no += 1;
       return false;
     }
   }
@@ -69,7 +68,7 @@ class QuizApp {
         <p class="progress-meter">Wrong: <span class="progress-meter--wrong">0</span></p>
         <p class="progress-meter">Remaining: 
           <span class="progress-meter--remaining">
-            ${amtQuestions}
+            ${this.amtQuestions}
           </span>
         </p>
       </div>
@@ -97,14 +96,14 @@ class QuizApp {
     let wrong = $(".progress-meter--wrong");
     let remaining = $(".progress-meter--remaining");
 
-    correct.html(progress.correctQuestions.length);
-    wrong.html(progress.wrongQuestions.length);
-    remaining.html(amtQuestions - (currentQuestion));
+    correct.html(this.progress.correctQuestions.length);
+    wrong.html(this.progress.wrongQuestions.length);
+    remaining.html(this.amtQuestions - (this.currentQuestion));
 
   }
 
   increment() {
-    return (currentQuestion += 1);
+    return (this.currentQuestion += 1);
   }
 
   proceed() {
@@ -114,9 +113,9 @@ class QuizApp {
     // setup the data that needs to change for each question
     var legendHTML = `<legend class="question-item f-style--italic"> </legend>`;
     $c_fieldset.append().html(legendHTML);
-    $c_fieldset.children("legend").text(questions[currentQuestion].question);
+    $c_fieldset.children("legend").text(questions[this.currentQuestion].question);
 
-    let answersHTML = questions[currentQuestion].options.map((item, index) => {
+    let answersHTML = questions[this.currentQuestion].options.map((item, index) => {
       let template = `
       <label class="col-half" for="question-choice-${index + 1}" tabIndex="1">
       <input type="radio" id="question-choice-${index +
@@ -131,10 +130,10 @@ class QuizApp {
     $("label").remove();
     $c_fieldset.append(answersHTML);
 
-    if (currentQuestion === 0) {
+    if (this.currentQuestion === 0) {
       this.increment();
     } else {this.increment();}
-    return currentQuestion;
+    return this.currentQuestion;
   }
 
   onSelectionHandler(e) {
@@ -195,20 +194,20 @@ class QuizApp {
 
       if ($inputValue) {
         let resultClass =
-          $inputValue === questions[currentQuestion].correct
+          $inputValue === questions[this.currentQuestion].correct
             ? "reasoning--correct"
             : "reasoning--wrong";
         let resultText =
-          $inputValue === questions[currentQuestion].correct
+          $inputValue === questions[this.currentQuestion].correct
             ? "Correct!"
             : "Wrong. BOOM ROASTED!";
         let templating = `<div class="reasoning"><h2 class="${resultClass}">${resultText}</h2><p>${
-          questions[currentQuestion].reason
+          questions[this.currentQuestion].reason
         }</p></div>`;
 
         this.lockoutOptions();
-        $(".reasoning") ? $(".reasoning").remove() : null;
-        $(".container-quiz__inner").append(templating);
+        $('.reasoning') ? $('.reasoning').remove() : null;
+        $('.container-quiz__inner').append(templating);
       }
     });
   }
@@ -221,44 +220,48 @@ class QuizApp {
       setTimeout(() => {
         $(".next-question").addClass("see-answer");
         $(".next-question").removeClass("next-question");
+
+        $('.see-answer').text('Check')
+        $('form').append($('.see-answer'));
         this.proceed();
       }, 200)
       setTimeout(() => {
         $(".reasoning") ? $(".reasoning").remove() : null;
-      }, 1000)
-        $('.progress-meter--current').html(currentQuestion + 1);
+      }, 400)
+        $('.progress-meter--current').html(this.currentQuestion + 1);
     });
   }
 
   onSubmitHandler() {
-    $('body').unbind('click').on("click", '.see-answer', e => {
+    $('body').unbind('click').on('click', '.see-answer', e => {
       e.preventDefault();
 
       let $inputValue = $("input[type='radio']:checked").val();
 
       if ($inputValue) {
         let resultClass =
-          $inputValue === questions[currentQuestion - 1].correct
+          $inputValue === questions[this.currentQuestion - 1].correct
             ? "reasoning--correct"
             : "reasoning--wrong";
         let resultText =
-          $inputValue === questions[currentQuestion - 1].correct
+          $inputValue === questions[this.currentQuestion - 1].correct
             ? "Correct!"
             : "Wrong. BOOM ROASTED!";
         let templating = `<div class="reasoning"><h2 class="${resultClass}">${resultText}</h2><p>${
-          questions[currentQuestion - 1].reason
+          questions[this.currentQuestion - 1].reason
         }</p></div>`;
 
         this.lockoutOptions();
         $(".reasoning") ? $(".reasoning").remove() : null;
         $(".container-quiz__inner").append(templating);
         setTimeout(() => {
-          document.querySelector('.reasoning').scrollIntoView({ behavior: 'smooth' });
+          // document.querySelector('.reasoning').scrollIntoView({ behavior: 'smooth' });
+          window.scrollBy({ top: 600, left: 0, behavior: 'smooth' });
         }, 300)
 
         if (
           this.checkInput() === true &&
-          currentQuestion === amtQuestions
+          this.currentQuestion === this.amtQuestions
         ) {
 
           this.nextQuestion();
@@ -266,6 +269,9 @@ class QuizApp {
           setTimeout(function() {
             $('.see-answer').addClass('next-question');
             $('.see-answer').removeClass('see-answer');
+
+            $('.next-question').text('Next Question')
+            $('.reasoning').append($('.next-question'));
           }, 300)
           //
           this.answerStatus();
@@ -280,6 +286,9 @@ class QuizApp {
             $('.see-answer').addClass('next-question');
             $('.see-answer').removeClass('see-answer');
 
+            $('.next-question').text('Next Question')
+            $('.reasoning').append($('.next-question'));
+
           }, 300)
           this.answerStatus();
           this.progressMeter();
@@ -292,17 +301,19 @@ class QuizApp {
 
   renderResults() {
     let feedbackPT1 =
-      progress.score.yes > 6 ? "Nicely done! 💯" : "Better luck next time.";
-    let feedbackPT2 = progress.score.yes > 6 ? "master." : "loser.";
+      this.progress.score.yes > 6 ? "Nicely done! 💯" : "Better luck next time.";
+    let feedbackPT2 = this.progress.score.yes > 6 ? "master." : "loser.";
     let template = `
-    <h1>
-      Your Results
-    </h1>
-    <h2>${feedbackPT1} ${progress.score.yes}/${amtQuestions} correct</h2>
-    <p>You are truly the roast ${feedbackPT2}. 👏</p>
-    <div>
-      <button class="btn c--transparent button-retake">Retake quiz</button>
-      <a class="btn c--blue button-share" target="_blank" href="https://twitter.com/home?status=Coffee%20quiz%20by%20%40modayilme%0Ahttps%3A//codepen.io/modayilme/project/live/24796d4c441b4db988b5b28aa5906e13/XMaOmW/">Share on 🐦</a>
+    <div class="results-container">
+      <h1>
+        Your Results
+      </h1>
+      <h2>${feedbackPT1} ${this.progress.score.yes}/${this.amtQuestions} correct</h2>
+      <p>You are truly the roast ${feedbackPT2}. 👏</p>
+      <div>
+        <button class="btn c--transparent button-retake">Retake quiz</button>
+        <a class="btn c--blue button-share" target="_blank" href="https://twitter.com/home?status=Coffee%20quiz%20by%20%40modayilme%0Ahttps%3A//codepen.io/modayilme/project/live/24796d4c441b4db988b5b28aa5906e13/XMaOmW/">Share on 🐦</a>
+      </div>
     </div>
   `;
     this.clearMainContainer();
@@ -312,11 +323,11 @@ class QuizApp {
 
   reset() {
     $(".button-retake").on("click", () => {
-      currentQuestion = 0;
-      progress.correctQuestions = [];
-      progress.wrongQuestions = [];
-      progress.score.yes = 0;
-      progress.score.no = 0;
+      this.currentQuestion = 0;
+      this.progress.correctQuestions = [];
+      this.progress.wrongQuestions = [];
+      this.progress.score.yes = 0;
+      this.progress.score.no = 0;
 
       this.clearMainContainer();
       $("aside").remove();

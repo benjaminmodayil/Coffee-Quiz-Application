@@ -54,8 +54,16 @@ legend {
   flex: 1 1 100%;
 }
 
+.button-retake, .button-share {
+  display: block;
+  margin: 15px 0;
+  text-align: center;
+  width: 100%;
+}
+
 .progress-meter {
   background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   color: black;
   margin: 20px auto;
   max-width: 210px;
@@ -104,6 +112,7 @@ label {
 label:hover,
 label:focus {
   background-color: #d35400;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   color: white;
 }
 
@@ -140,6 +149,10 @@ fieldset {
   margin: 32px 0;
   padding: 10px 0;
   text-align: center;
+}
+
+.results-container {
+  margin-bottom: 3rem;
 }
 
 .text--small {
@@ -199,6 +212,7 @@ aside {
 }
 
 .button-start {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   margin-top: 3rem;
 }
 
@@ -213,7 +227,7 @@ aside {
   max-width: 640px;
 }
 
-.container-quiz__inner:after {
+.container-quiz__inner:after, .reasoning:after {
   content: '';
   display: table;
   clear: both;
@@ -282,7 +296,7 @@ form button {
   background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   line-height: 1.5;
-  margin: 20px auto;
+  margin: 20px auto 60px auto;
   padding: 20px;
 }
 
@@ -371,4 +385,20 @@ form button {
   .container-progress {
     flex-direction: column;
   }
+
+  .reasoning {
+    margin: 20px auto 100px auto;
+  }
+
+  .button-retake, .button-share {
+    display: initial;
+    margin: initial initial;
+    text-align: initial;
+    width: initial;
+  }
+
+  .results-container {
+    margin-bottom: 0;
+  }
 }
+
