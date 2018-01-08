@@ -55,7 +55,7 @@ class QuizApp {
 
               </div>
             </fieldset>
-            <button class="see-answer btn c--transparent u-float--right" type="submit">Next</button>
+            <button class="see-answer btn c--transparent u-float--right" type="submit">Check</button>
           </form>
         </div>
   `;
