@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  background: #f5f5f5;
+  background: #ffffff;
   font-family: 'Merriweather', sans-serif;
   margin: 0;
   display: flex;
@@ -23,7 +23,7 @@ h4,
 h5,
 h6,
 legend {
-  color: #d35400;
+  color: #c95000;
   margin: 0;
 }
 
@@ -109,8 +109,8 @@ legend {
 
 label {
   align-items: center;
-  border: 1px solid #d35400;
-  color: #d35400;
+  border: 1px solid #c95000;
+  color: #c95000;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -121,7 +121,7 @@ label {
 
 label:hover,
 label:focus {
-  background-color: #d35400;
+  background-color: #c95000;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   color: white;
 }
@@ -135,7 +135,7 @@ input[type='radio'] {
 }
 
 .--is-checked {
-  background-color: #d35400;
+  background-color: #c95000;
   color: white;
 }
 
@@ -153,7 +153,7 @@ fieldset {
 }
 
 .js-warning {
-  background-color: #d35400;
+  background-color: #c95000;
   color: white;
   flex: 1 1 100%;
   margin: 32px 0;
@@ -171,7 +171,7 @@ fieldset {
 }
 
 .text--small a {
-  color: #d35400;
+  color: #c95000;
 }
 
 form {
@@ -194,14 +194,14 @@ main h1 {
 }
 
 main p {
-  color: #d35400;
+  color: #c95000;
   font-size: 18px;
   font-weight: 400;
   margin-bottom: 1.5rem;
 }
 
 aside {
-  background-color: #d35400;
+  background-color: #c95000;
   padding: 40px 20px;
   min-height: 20vh;
 }
@@ -211,7 +211,7 @@ aside {
 }
 
 .c--orange {
-  color: #d35400;
+  color: #c95000;
 }
 
 .bg-c--white {
@@ -219,7 +219,7 @@ aside {
 }
 
 .bg-c--orange {
-  background-color: #d35400;
+  background-color: #c95000;
 }
 
 .button-start {
@@ -265,26 +265,26 @@ aside {
 
 .btn.c--orange {
   background-color: transparent;
-  border-color: #d35400;
-  color: #d35400;
+  border-color: #c95000;
+  color: #c95000;
 }
 
 .btn.c--orange:hover,
 .btn.c--orange:focus {
-  background-color: #d35400;
+  background-color: #c95000;
   color: white;
 }
 
 .btn.c--transparent {
-  background-color: #d35400;
-  border-color: #d35400;
+  background-color: #c95000;
+  border-color: #c95000;
   color: white;
 }
 
 .btn.c--transparent:hover,
 .btn.c--transparent:focus {
-  background-color: #f5f5f5;
-  color: #d35400;
+  background-color: #ffffff;
+  color: #c95000;
 }
 
 .btn.c--blue {
@@ -295,7 +295,7 @@ aside {
 
 .btn.c--blue:hover,
 .btn.c--blue:focus {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   color: #009df6;
 }
 
@@ -356,7 +356,7 @@ form button {
     font-size: 96px;
   }
   main p {
-    color: #d35400;
+    color: #c95000;
     font-size: 28px;
   }
   .question-item {

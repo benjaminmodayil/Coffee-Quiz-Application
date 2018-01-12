@@ -115,7 +115,7 @@ class QuizApp {
 
     let answersHTML = questions[this.currentQuestion].options.map((item, index) => {
       let template = `
-      <label class="col-half" for="question-choice-${index + 1}" tabIndex="1">
+      <label class="col-half" for="question-choice-${index + 1}" tabIndex="0">
       <input type="radio" id="question-choice-${index +
         1}" name="choice" value="${item}">         
       ${item}</label>
